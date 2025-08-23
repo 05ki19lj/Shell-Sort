@@ -131,3 +131,5 @@ int main() {
     return 0;
 }
 
+## 六、程式碼測試結果
+![image](https://github.com/05ki19lj/Shell-Sort/blob/main/Shell%20Sort%20T.png)
