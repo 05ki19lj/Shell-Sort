@@ -75,14 +75,26 @@
 穩定性 不穩定，等值元素相對順序可能改變
 適用場景 中等規模資料排序，內存有限時表現不錯；不要求穩定性的應用
 
-# 程式碼#include <stdio.h>
+# 五、程式碼
+### 這邊寫出運算的過程，以及運算結果
+#include <stdio.h>
 
-// 希爾排序函式
+// 輔助函式：印出陣列
+void print_array(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+// 希爾排序（帶過程輸出）
 void shell_sort(int arr[], int n) {
-    int gap, i, j, temp;
+    int gap, i, j, temp, step = 1;
 
     // 初始化 gap，逐步縮小
     for (gap = n / 2; gap > 0; gap /= 2) {
+        printf("\n--- 當前 gap = %d ---\n", gap);
+
         // 遍歷子序列中的元素
         for (i = gap; i < n; i++) {
             temp = arr[i];
@@ -94,6 +106,10 @@ void shell_sort(int arr[], int n) {
                 j -= gap;
             }
             arr[j] = temp;
+
+            // 顯示每次插入後的狀態
+            printf("步驟 %d: ", step++);
+            print_array(arr, n);
         }
     }
 }
@@ -101,21 +117,15 @@ void shell_sort(int arr[], int n) {
 int main() {
     int arr[] = {9, 8, 3, 7, 5, 6, 4, 1, 2};
     int n = sizeof(arr) / sizeof(arr[0]);
-    int i;
 
-    printf("排序前: ");
-    for (i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
+    printf("原始陣列: ");
+    print_array(arr, n);
 
     shell_sort(arr, n);
 
-    printf("排序後: ");
-    for (i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
+    printf("\n最終排序結果: ");
+    print_array(arr, n);
 
     return 0;
 }
+
