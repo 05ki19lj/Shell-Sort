@@ -1,4 +1,4 @@
-# Shell-Sort
+# Shell Sort
 
 
 ## 一、演算法概述
@@ -64,6 +64,9 @@
 
 
 這種「逐步逼近」的方式，確保了排序過程既不會漏掉任何元素的比較，也能在最後階段以最少的操作完成整體排序。
+
+## 圖例
+![image](https://github.com/05ki19lj/Shell-Sort/blob/main/Shell%20Sort%E5%9C%96%E6%A1%88%E7%AF%84%E4%BE%8B.png)
 
 ## 四、演算法特性
 
